@@ -293,23 +293,26 @@ class _HomePageState extends State<HomePage> {
                   //CONTINUE
                   FittedBox(
                     fit: BoxFit.scaleDown,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        setState(() {
-                          ingredToInclude = ingredIncludeController.text
-                              .replaceAll(" ", "")
-                              .split(',');
-                          ingredAtHome = ingredHomeController.text.split(',');
-                          ingredIncludeController.clear();
-                          ingredHomeController.clear();
-                        });
-                      },
-                      child: Text(
-                        "Continue",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 17,
-                          fontWeight: FontWeight.bold,
+                    child: SizedBox(
+                      height: 40,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            ingredToInclude = ingredIncludeController.text
+                                .replaceAll(" ", "")
+                                .split(',');
+                            ingredAtHome = ingredHomeController.text.split(',');
+                            ingredIncludeController.clear();
+                            ingredHomeController.clear();
+                          });
+                        },
+                        child: Text(
+                          "Continue",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
