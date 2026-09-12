@@ -75,10 +75,12 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-     - family: AlteHaasGrotesk
-       fonts:
-         - asset: assets/fonts/AlteHaasGroteskRegular.ttf
-         - asset: assets/fonts/AlteHaasGroteskBold.ttf
+   - family: AlteHaasGrotesk
+     fonts:
+       - asset: assets/fonts/AlteHaasGroteskRegular.ttf
+         weight: 400
+       - asset: assets/fonts/AlteHaasGroteskBold.ttf
+         weight: 700
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:

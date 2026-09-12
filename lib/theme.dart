@@ -47,7 +47,9 @@ class AppTheme {
     ),
     segmentedButtonTheme: SegmentedButtonThemeData(
       style: ButtonStyle(
-        textStyle: WidgetStatePropertyAll(TextStyle(fontSize: 10)),
+        textStyle: WidgetStatePropertyAll(
+          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+        ),
       ),
     ),
   );
