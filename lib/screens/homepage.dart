@@ -14,6 +14,7 @@ class _HomePageState extends State<HomePage> {
   double budget = 100;
   String skillLevel = "easy";
   double timeToCook = 60;
+  int numberOfPeople = 1;
   List<String> ingredToInclude = [];
   List<String> ingredAtHome = [];
 
@@ -71,7 +72,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
 
-                  //BUDGET
+                  //BUDGET SLIDER
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
@@ -86,7 +87,7 @@ class _HomePageState extends State<HomePage> {
                             child: Text(
                               'Budget: ${budget.round()} kr',
                               style: const TextStyle(
-                                fontSize: 20,
+                                fontSize: 17,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -107,7 +108,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
 
-                  //SKILL LEVEL
+                  //SKILL LEVEL BUTTON
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
@@ -115,21 +116,21 @@ class _HomePageState extends State<HomePage> {
                     ),
                     child: Padding(
                       padding: const EdgeInsetsDirectional.fromSTEB(8, 5, 8, 8),
-                      child: SizedBox(
-                        width: double.infinity,
-                        child: FittedBox(
-                          fit: BoxFit.scaleDown,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Skill level',
-                                style: const TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              SegmentedButton<String>(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Skill level',
+                            style: const TextStyle(
+                              fontSize: 17,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(
+                            width: double.infinity,
+                            child: FittedBox(
+                              fit: BoxFit.scaleDown,
+                              child: SegmentedButton<String>(
                                 showSelectedIcon: false,
                                 segments: const [
                                   ButtonSegment(
@@ -152,14 +153,14 @@ class _HomePageState extends State<HomePage> {
                                   });
                                 },
                               ),
-                            ],
+                            ),
                           ),
-                        ),
+                        ],
                       ),
                     ),
                   ),
 
-                  //TIME
+                  //TIME SLIDER
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
@@ -173,7 +174,7 @@ class _HomePageState extends State<HomePage> {
                             child: Text(
                               '${timeToCook.round()} min',
                               style: const TextStyle(
-                                fontSize: 20,
+                                fontSize: 17,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -194,6 +195,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
 
+                  //INGREDIENTS TEXTFIELD
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
@@ -211,7 +213,7 @@ class _HomePageState extends State<HomePage> {
                             child: Text(
                               'Ingredients',
                               style: const TextStyle(
-                                fontSize: 20,
+                                fontSize: 17,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -252,6 +254,43 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   ),
+
+                  //PEOPLE SLIDER
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: Theme.of(context).colorScheme.surface,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsetsDirectional.fromSTEB(8, 5, 8, 8),
+                      child: Column(
+                        children: [
+                          FittedBox(
+                            child: Text(
+                              'Number of people: ${numberOfPeople.toString()}',
+                              style: const TextStyle(
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          Slider(
+                            value: numberOfPeople.toDouble(),
+                            min: 1,
+                            max: 5,
+                            divisions: 4,
+                            onChanged: (newValue) {
+                              setState(() {
+                                numberOfPeople = newValue.round();
+                              });
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+
+                  //CONTINUE
                   FittedBox(
                     fit: BoxFit.scaleDown,
                     child: ElevatedButton(
@@ -269,7 +308,7 @@ class _HomePageState extends State<HomePage> {
                         "Continue",
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 20,
+                          fontSize: 17,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
