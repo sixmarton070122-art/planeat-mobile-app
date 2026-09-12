@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:planeat_mobile_app/models/user_input.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.title});
@@ -17,6 +18,7 @@ class _HomePageState extends State<HomePage> {
   int servings = 1;
   List<String> ingredToInclude = [];
   List<String> ingredAtHome = [];
+  UserInput? newUserInput;
 
   final TextEditingController ingredIncludeController = TextEditingController();
   final TextEditingController ingredHomeController = TextEditingController();
@@ -300,8 +302,24 @@ class _HomePageState extends State<HomePage> {
                           setState(() {
                             ingredToInclude = ingredIncludeController.text
                                 .replaceAll(" ", "")
-                                .split(',');
-                            ingredAtHome = ingredHomeController.text.split(',');
+                                .split(',')
+                                .where((s) => s.isNotEmpty)
+                                .toList();
+                            ingredAtHome = ingredHomeController.text
+                                .replaceAll(" ", "")
+                                .split(',')
+                                .where((s) => s.isNotEmpty)
+                                .toList();
+
+                            newUserInput = UserInput(  
+                              budget: budget,
+                              skillLevel: skillLevel,
+                              timeToCook: timeToCook,
+                              servings: servings,
+                              ingredToInclude: ingredToInclude,
+                              ingredAtHome: ingredAtHome,
+                            );
+
                             ingredIncludeController.clear();
                             ingredHomeController.clear();
                           });
