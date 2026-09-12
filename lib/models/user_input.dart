@@ -2,7 +2,7 @@ class UserInput {
     final double budget;
     final String skillLevel;
     final double timeToCook;
-    final int numberOfPeople;
+    final int servings;
     final List<String> ingredToInclude;
     final List<String> ingredAtHome;
 
@@ -10,7 +10,7 @@ class UserInput {
       required this.budget,
       required this.skillLevel,
       required this.timeToCook,
-      required this.numberOfPeople,
+      required this.servings,
       required this.ingredToInclude,
       required this.ingredAtHome
     });
