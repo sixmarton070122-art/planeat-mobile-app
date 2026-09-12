@@ -14,7 +14,6 @@ class _HomePageState extends State<HomePage> {
   double budget = 100;
   String skillLevel = "easy";
   double timeToCook = 60;
-  int numberOfPeople = 1;
   int servings = 1;
   List<String> ingredToInclude = [];
   List<String> ingredAtHome = [];
@@ -250,41 +249,6 @@ class _HomePageState extends State<HomePage> {
                                 vertical: 15,
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-
-                  //PEOPLE SLIDER
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      color: Theme.of(context).colorScheme.surface,
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(8, 5, 8, 8),
-                      child: Column(
-                        children: [
-                          FittedBox(
-                            child: Text(
-                              'Number of people: ${numberOfPeople.toString()}',
-                              style: const TextStyle(
-                                fontSize: 17,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                          Slider(
-                            value: numberOfPeople.toDouble(),
-                            min: 1,
-                            max: 5,
-                            divisions: 4,
-                            onChanged: (newValue) {
-                              setState(() {
-                                numberOfPeople = newValue.round();
-                              });
-                            },
                           ),
                         ],
                       ),
