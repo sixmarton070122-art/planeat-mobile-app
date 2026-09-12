@@ -7,11 +7,15 @@ class AppTheme {
     useMaterial3: true,
     brightness: Brightness.light,
     fontFamily: 'AlteHaasGrotesk',
-    colorScheme: ColorScheme.fromSeed(
-      seedColor: seedColor,
-      brightness: Brightness.light,
-    ),
-    scaffoldBackgroundColor: const Color(0xFFF6FBF6),
+    colorScheme:
+        ColorScheme.fromSeed(
+          seedColor: const Color.fromARGB(255, 195, 247, 198),
+          brightness: Brightness.light,
+        ).copyWith(
+          surface: const Color.fromARGB(255, 185, 255, 191), // light green — this is what your containers actually read
+          inversePrimary: const Color(0xFF2E7D32)
+        ),
+    scaffoldBackgroundColor: const Color.fromARGB(255, 110, 204, 113),
     appBarTheme: const AppBarTheme(
       backgroundColor: Color(0xFF2E7D32),
       foregroundColor: Colors.white,
@@ -20,19 +24,22 @@ class AppTheme {
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: const Color(0xFF2E7D32),
+        backgroundColor: const Color.fromARGB(255, 60, 156, 64),
         foregroundColor: Colors.white,
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
     ),
     cardTheme: CardThemeData(
-      elevation: 1,
+      elevation: 2,
+      color: const Color(
+        0xFFE8F5E9,
+      ), // kept in sync with colorScheme.surface above
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
     ),
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
-      fillColor: const Color(0xFFE8F5E9),
+      fillColor: const Color(0xFFF1F8F1),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
         borderSide: BorderSide.none,
@@ -86,7 +93,9 @@ class AppTheme {
     ),
     segmentedButtonTheme: SegmentedButtonThemeData(
       style: ButtonStyle(
-        textStyle: WidgetStatePropertyAll(TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+        textStyle: WidgetStatePropertyAll(
+          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+        ),
       ),
     ),
   );
