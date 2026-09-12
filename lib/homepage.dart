@@ -22,253 +22,261 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: FittedBox(
-          child: Text(
-            widget.title,
-            style: const TextStyle(
-              fontFamily: 'AlteHaasGrotesk',
-              fontSize: 20,
-              fontWeight: FontWeight.w600,
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          title: FittedBox(
+            child: Text(
+              widget.title,
+              style: const TextStyle(
+                fontFamily: 'AlteHaasGrotesk',
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ),
         ),
-      ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(10),
-            child: Column(
-              spacing: 8,
-              children: [
-                //WELCOME
-                SizedBox(
-                  height: 65,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      color: Theme.of(context).colorScheme.surface,
-                    ),
-                    child: Center(
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: AutoSizeText(
-                          "What would you like to eat today Sir?",
-                          style: const TextStyle(
-                            fontSize: 40,
-                            fontWeight: FontWeight.bold,
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                spacing: 8,
+                children: [
+                  //WELCOME
+                  SizedBox(
+                    height: 65,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        color: Theme.of(context).colorScheme.surface,
+                      ),
+                      child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: AutoSizeText(
+                            "What would you like to eat today Sir?",
+                            style: const TextStyle(
+                              fontSize: 40,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            textAlign: TextAlign.center,
                           ),
-                          textAlign: TextAlign.center,
                         ),
                       ),
                     ),
                   ),
-                ),
 
-                //BUDGET
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    color: Theme.of(context).colorScheme.surface,
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(8, 5, 8, 8),
-                    child: Column(
-                      spacing: 0,
-                      children: [
-                        FittedBox(
-                          child: Text(
-                            'Budget: ${budget.round()} kr',
-                            style: const TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                        Slider(
-                          value: budget,
-                          min: 20,
-                          max: 300,
-                          divisions: 28,
-                          onChanged: (newValue) {
-                            setState(() {
-                              budget = newValue;
-                            });
-                          },
-                        ),
-                      ],
+                  //BUDGET
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: Theme.of(context).colorScheme.surface,
                     ),
-                  ),
-                ),
-
-                //SKILL LEVEL
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    color: Theme.of(context).colorScheme.surface,
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(8, 5, 8, 8),
-                    child: SizedBox(
-                      width: double.infinity,
-                      child: FittedBox(
-                        fit: BoxFit.scaleDown,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              'Skill level',
+                    child: Padding(
+                      padding: const EdgeInsetsDirectional.fromSTEB(8, 5, 8, 8),
+                      child: Column(
+                        spacing: 0,
+                        children: [
+                          FittedBox(
+                            child: Text(
+                              'Budget: ${budget.round()} kr',
                               style: const TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SegmentedButton<String>(
-                              showSelectedIcon: false,
-                              segments: const [
-                                ButtonSegment(
-                                  value: 'easy',
-                                  label: Text('Easy'),
+                          ),
+                          Slider(
+                            value: budget,
+                            min: 20,
+                            max: 300,
+                            divisions: 28,
+                            onChanged: (newValue) {
+                              setState(() {
+                                budget = newValue;
+                              });
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+
+                  //SKILL LEVEL
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: Theme.of(context).colorScheme.surface,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsetsDirectional.fromSTEB(8, 5, 8, 8),
+                      child: SizedBox(
+                        width: double.infinity,
+                        child: FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Skill level',
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
                                 ),
-                                ButtonSegment(
-                                  value: 'medium',
-                                  label: Text('Medium'),
-                                ),
-                                ButtonSegment(
-                                  value: 'hard',
-                                  label: Text('Hard'),
-                                ),
-                              ],
-                              selected: {skillLevel},
-                              onSelectionChanged: (selection) {
-                                setState(() {
-                                  skillLevel = selection.first;
-                                });
-                              },
-                            ),
-                          ],
+                              ),
+                              SegmentedButton<String>(
+                                showSelectedIcon: false,
+                                segments: const [
+                                  ButtonSegment(
+                                    value: 'easy',
+                                    label: Text('Easy'),
+                                  ),
+                                  ButtonSegment(
+                                    value: 'medium',
+                                    label: Text('Medium'),
+                                  ),
+                                  ButtonSegment(
+                                    value: 'hard',
+                                    label: Text('Hard'),
+                                  ),
+                                ],
+                                selected: {skillLevel},
+                                onSelectionChanged: (selection) {
+                                  setState(() {
+                                    skillLevel = selection.first;
+                                  });
+                                },
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
 
-                //TIME
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    color: Theme.of(context).colorScheme.surface,
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(8, 5, 8, 8),
-                    child: Column(
-                      children: [
-                        FittedBox(
-                          child: Text(
-                            '${timeToCook.round()} min',
-                            style: const TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
+                  //TIME
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: Theme.of(context).colorScheme.surface,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsetsDirectional.fromSTEB(8, 5, 8, 8),
+                      child: Column(
+                        children: [
+                          FittedBox(
+                            child: Text(
+                              '${timeToCook.round()} min',
+                              style: const TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
-                        ),
-                        Slider(
-                          value: timeToCook,
-                          min: 5,
-                          max: 120,
-                          divisions: 23,
-                          onChanged: (newValue) {
-                            setState(() {
-                              timeToCook = newValue;
-                            });
-                          },
-                        ),
-                      ],
+                          Slider(
+                            value: timeToCook,
+                            min: 5,
+                            max: 120,
+                            divisions: 23,
+                            onChanged: (newValue) {
+                              setState(() {
+                                timeToCook = newValue;
+                              });
+                            },
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
 
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    color: Theme.of(context).colorScheme.surface,
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsetsGeometry.symmetric(
-                      horizontal: 8,
-                      vertical: 8,
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: Theme.of(context).colorScheme.surface,
                     ),
-                    child: Column(
-                      spacing: 5,
-                      children: [
-                        FittedBox(
-                          child: Text(
-                            'Ingredients',
-                            style: const TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
+                    child: Padding(
+                      padding: const EdgeInsetsGeometry.symmetric(
+                        horizontal: 8,
+                        vertical: 8,
+                      ),
+                      child: Column(
+                        spacing: 5,
+                        children: [
+                          FittedBox(
+                            child: Text(
+                              'Ingredients',
+                              style: const TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
-                        ),
-                        TextField(
-                          controller: ingredIncludeController,
-                          minLines: 1,
-                          maxLines: null,
-                          keyboardType: TextInputType.multiline,
-                          style: const TextStyle(height: 1.2),
-                          decoration: const InputDecoration(
-                            labelText: 'To include',
-                            hintText: 'Enter',
-                            isDense: true,
-                            contentPadding: EdgeInsets.symmetric(
-                              horizontal: 8,
-                              vertical: 15,
+                          TextField(
+                            controller: ingredIncludeController,
+                            minLines: 1,
+                            maxLines: null,
+                            keyboardType: TextInputType.multiline,
+                            style: const TextStyle(height: 1.2),
+                            decoration: const InputDecoration(
+                              labelText: 'To include',
+                              hintText: 'Enter',
+                              isDense: true,
+                              contentPadding: EdgeInsets.symmetric(
+                                horizontal: 8,
+                                vertical: 15,
+                              ),
                             ),
                           ),
-                        ),
-                        TextField(
-                          controller: ingredHomeController,
-                          minLines: 1,
-                          maxLines: null,
-                          keyboardType: TextInputType.multiline,
-                          style: const TextStyle(height: 1.2),
-                          decoration: const InputDecoration(
-                            labelText: 'At home',
-                            hintText: 'Enter',
-                            isDense: true,
-                            contentPadding: EdgeInsets.symmetric(
-                              horizontal: 8,
-                              vertical: 15,
+                          TextField(
+                            controller: ingredHomeController,
+                            minLines: 1,
+                            maxLines: null,
+                            keyboardType: TextInputType.multiline,
+                            style: const TextStyle(height: 1.2),
+                            decoration: const InputDecoration(
+                              labelText: 'At home',
+                              hintText: 'Enter',
+                              isDense: true,
+                              contentPadding: EdgeInsets.symmetric(
+                                horizontal: 8,
+                                vertical: 15,
+                              ),
                             ),
                           ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        setState(() {
+                          ingredToInclude = ingredIncludeController.text
+                              .replaceAll(" ", "")
+                              .split(',');
+                          ingredAtHome = ingredHomeController.text.split(',');
+                          ingredIncludeController.clear();
+                          ingredHomeController.clear();
+                        });
+                      },
+                      child: Text(
+                        "Continue",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
                         ),
-                      ],
+                      ),
                     ),
                   ),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      ingredToInclude = ingredIncludeController.text
-                          .replaceAll(" ", "")
-                          .split(',');
-                      ingredAtHome = ingredHomeController.text.split(',');
-                      ingredIncludeController.clear();
-                      ingredHomeController.clear();
-                    });
-                  },
-                  child: Text(
-                    "Continue",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
