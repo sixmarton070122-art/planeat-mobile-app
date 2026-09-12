@@ -15,6 +15,7 @@ class _HomePageState extends State<HomePage> {
   String skillLevel = "easy";
   double timeToCook = 60;
   int numberOfPeople = 1;
+  int servings = 1;
   List<String> ingredToInclude = [];
   List<String> ingredAtHome = [];
 
@@ -46,7 +47,7 @@ class _HomePageState extends State<HomePage> {
             child: Padding(
               padding: const EdgeInsets.all(10),
               child: Column(
-                spacing: 8,
+                spacing: 5,
                 children: [
                   //WELCOME
                   SizedBox(
@@ -282,6 +283,41 @@ class _HomePageState extends State<HomePage> {
                             onChanged: (newValue) {
                               setState(() {
                                 numberOfPeople = newValue.round();
+                              });
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+
+                  //SERVINGS SLIDER
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: Theme.of(context).colorScheme.surface,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsetsDirectional.fromSTEB(8, 5, 8, 8),
+                      child: Column(
+                        children: [
+                          FittedBox(
+                            child: Text(
+                              'Servings: ${servings.toString()}',
+                              style: const TextStyle(
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          Slider(
+                            value: servings.toDouble(),
+                            min: 1,
+                            max: 5,
+                            divisions: 4,
+                            onChanged: (newValue) {
+                              setState(() {
+                                servings = newValue.round();
                               });
                             },
                           ),
