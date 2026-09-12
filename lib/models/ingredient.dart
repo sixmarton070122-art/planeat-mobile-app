@@ -1,7 +1,7 @@
 class Ingredient {
-  final String name;
-  final String amount;
-  final double cost;
+  final String name; //Ingredient name
+  final String amount; //Amount to be used
+  final double cost; //Cost of ingredient
 
   Ingredient({
     required this.name,
