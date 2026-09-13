@@ -23,6 +23,7 @@ final mockRecipes = [
       'Add the tomato sauce and simmer for 15 minutes.',
       'Serve the sauce over the spaghetti.',
     ],
+    imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0DIQbp-AjXjgDNvRZyLXKVyEYR5vKlNELtGp4D9jM0w&s=10"
   ),
 
   Recipe(
@@ -48,6 +49,7 @@ final mockRecipes = [
       'Add soy sauce and stir-fry for a few minutes.',
       'Serve hot.',
     ],
+    imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5iA-RFuI9-KZun_xmhOAD4nNydKASaFuKKhTWEWbh2A&s=10"
   ),
 
   Recipe(
@@ -73,5 +75,6 @@ final mockRecipes = [
       'Season with salt and pepper.',
       'Top with Parmesan cheese and serve.',
     ],
+    imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa9EyKG9tQ5w48gIscPVhpFdkyLeaqME_-iFpE-T5q3w&s=10"
   ),
 ];

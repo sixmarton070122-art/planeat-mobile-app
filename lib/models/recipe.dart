@@ -7,6 +7,7 @@ class Recipe {
   final double totalCost; //Total cost
   final List<Ingredient> ingredients; //List of ingredients
   final List<String> steps; //Steps for cooking
+  final String imageURL;
 
   Recipe({
     required this.name,
@@ -14,7 +15,8 @@ class Recipe {
     required this.timeToCook,
     required this.totalCost,
     required this.ingredients,
-    required this.steps
+    required this.steps,
+    required this.imageURL
   });
 
 }
