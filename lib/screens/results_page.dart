@@ -99,32 +99,36 @@ class _ResultsPageState extends State<ResultsPage> {
                           // Data row
                           Padding(
                             padding: const EdgeInsets.all(5),
-                            child: Row(
-                              verticalDirection: VerticalDirection.down,
+                            child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Expanded(
-                                  child: AutoSizeText(
+                                FittedBox(
+                                  fit: BoxFit.scaleDown,
+                                  child: Text(
                                     recipe.name,
                                     style: const TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 15,
+                                      fontSize: 20,
                                     ),
                                   ),
                                 ),
 
-                                Row(
-                                  spacing: 10,
-                                  children: [
-                                    AutoSizeText(
-                                      '${recipe.totalCost.round()} kr',
-                                      style: const TextStyle(fontSize: 10),
-                                    ),
-                                    AutoSizeText(
-                                      '${recipe.timeToCook.round()} min',
-                                      style: const TextStyle(fontSize: 10),
-                                    ),
-                                  ],
+                                FittedBox(
+                                  fit: BoxFit.scaleDown,
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                    spacing: 10,
+                                    children: [
+                                      Text(
+                                        '${recipe.totalCost.round()} kr',
+                                        style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                                      ),
+                                      Text(
+                                        '${recipe.timeToCook.round()} min',
+                                        style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ],
                             ),
