@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:planeat_mobile_app/models/user_input.dart';
+import 'package:planeat_mobile_app/screens/results_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.title});
@@ -311,7 +312,7 @@ class _HomePageState extends State<HomePage> {
                                 .where((s) => s.isNotEmpty)
                                 .toList();
 
-                            newUserInput = UserInput(  
+                            newUserInput = UserInput(
                               budget: budget,
                               skillLevel: skillLevel,
                               timeToCook: timeToCook,
@@ -323,6 +324,15 @@ class _HomePageState extends State<HomePage> {
                             ingredIncludeController.clear();
                             ingredHomeController.clear();
                           });
+
+                          if (newUserInput != null) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ResultsPage(),
+                              ),
+                            );
+                          }
                         },
                         child: Text(
                           "Continue",
