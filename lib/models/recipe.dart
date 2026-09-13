@@ -1,4 +1,4 @@
-import 'ingredient.dart';
+import 'package:planeat_mobile_app/models/ingredient.dart';
 
 class Recipe {
   final String name; //Name of the recipe
