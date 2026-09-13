@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:planeat_mobile_app/models/recipe.dart';
 import 'package:planeat_mobile_app/testing/mock_recipes.dart';
@@ -68,31 +69,67 @@ class _ResultsPageState extends State<ResultsPage> {
                 final recipe = recipesList[index];
 
                 return Padding(
-                  padding: const EdgeInsetsGeometry.directional(top: 6),
-                  child: SizedBox(
-                    height: 60,
-                    width: double.infinity,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        color: Theme.of(context).colorScheme.surface,
-                      ),
-                      child: Center(
-                        child: ListTile(
-                          leading: AutoSizeText(
-                            '${recipe.timeToCook.toInt()} min',
-                          ),
-                          title: AutoSizeText(
-                            recipe.name,
-                            style: const TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
+                  padding: const EdgeInsets.only(bottom: 6),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: Theme.of(context).colorScheme.surface,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: Column(
+                        children: [
+                          // Image
+                          AspectRatio(
+                            aspectRatio: 16 / 5.2,
+                            child: ClipRRect(
+                              borderRadius: const BorderRadius.vertical(
+                                top: Radius.circular(5),
+                              ),
+                              child: CachedNetworkImage(
+                                imageUrl: recipe.imageURL,
+                                width: double.infinity,
+                                height: double.infinity,
+                                fit: BoxFit.cover,
+                                alignment: Alignment.center,
+                              ),
                             ),
                           ),
-                          trailing: AutoSizeText(
-                            '${recipe.totalCost.round()} kr',
+
+                          // Data row
+                          Padding(
+                            padding: const EdgeInsets.all(5),
+                            child: Row(
+                              verticalDirection: VerticalDirection.down,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  child: AutoSizeText(
+                                    recipe.name,
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                ),
+
+                                Row(
+                                  spacing: 10,
+                                  children: [
+                                    AutoSizeText(
+                                      '${recipe.totalCost.round()} kr',
+                                      style: const TextStyle(fontSize: 10),
+                                    ),
+                                    AutoSizeText(
+                                      '${recipe.timeToCook.round()} min',
+                                      style: const TextStyle(fontSize: 10),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
+                        ],
                       ),
                     ),
                   ),
