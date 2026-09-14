@@ -17,7 +17,7 @@ class ResultsScreen extends StatefulWidget {
 }
 
 class _ResultsPageState extends State<ResultsScreen> {
-  final List<Recipe> recipesList = mockRecipes;
+  final List<Recipe> recipesList = (List<Recipe>.from(mockRecipes)..shuffle()).take(3).toList();
 
   @override
   Widget build(BuildContext context) {
