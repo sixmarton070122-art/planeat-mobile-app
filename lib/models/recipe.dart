@@ -1,4 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:planeat_mobile_app/models/ingredient.dart';
+import 'package:planeat_mobile_app/models/cooking_step.dart';
 
 class Recipe {
   final String name; //Name of the recipe
@@ -6,7 +8,7 @@ class Recipe {
   final double timeToCook; //Time to cook
   final double totalCost; //Total cost
   final List<Ingredient> ingredients; //List of ingredients
-  final List<String> steps; //Steps for cooking
+  final List<CookingStep> steps; //Steps for cooking
   final String imageURL;
 
   Recipe({

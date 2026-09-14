@@ -299,7 +299,58 @@ class _DetailedRecipeScreenState extends State<DetailedRecipeScreen> {
                       ),
 
                       //Steps list
-                      
+                      ListView.builder(
+                        itemCount: widget.recipe.steps.length,
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemBuilder: (context, index) {
+                          final step = widget.recipe.steps[index];
+
+                          return Padding(
+                            padding: const EdgeInsetsDirectional.only(top: 5),
+                            child: Column(
+                              spacing: 5,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Expanded(
+                                      child: Text(
+                                        step.description,
+                                        style: const TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                    ),
+                                    Checkbox(
+                                      value: step.isDone,
+                                      onChanged: (value) {
+                                        setState(() {
+                                          step.isDone = value ?? false;
+                                        });
+                                      },
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 2,
+                                  width: double.infinity,
+                                  child: DecoratedBox(
+                                    decoration: BoxDecoration(
+                                      color: Theme.of(
+                                        context,
+                                      ).colorScheme.outline,
+                                      borderRadius: BorderRadius.circular(5),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                      ),
                     ],
                   ),
                 ),
