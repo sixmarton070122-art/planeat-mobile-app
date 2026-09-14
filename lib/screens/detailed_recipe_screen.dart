@@ -360,6 +360,25 @@ class _DetailedRecipeScreenState extends State<DetailedRecipeScreen> {
                 ),
               ),
             ),
+
+            //Save button
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: SizedBox(
+                  height: 45,
+                  width: 100,
+                  child: ElevatedButton(onPressed: () {}, child: Text(
+                            "Save",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          )),
+                ),
+              ),
+            )
           ],
         ),
       ),
