@@ -12,8 +12,13 @@ class AppTheme {
           seedColor: const Color.fromARGB(255, 195, 247, 198),
           brightness: Brightness.light,
         ).copyWith(
-          surface: const Color.fromARGB(255, 185, 255, 191), // light green — this is what your containers actually read
-          inversePrimary: const Color(0xFF2E7D32)
+          surface: const Color.fromARGB(
+            255,
+            185,
+            255,
+            191,
+          ), // light green — this is what your containers actually read
+          inversePrimary: const Color(0xFF2E7D32),
         ),
     scaffoldBackgroundColor: const Color.fromARGB(255, 110, 204, 113),
     appBarTheme: const AppBarTheme(
@@ -58,11 +63,15 @@ class AppTheme {
     useMaterial3: true,
     brightness: Brightness.dark,
     fontFamily: 'AlteHaasGrotesk',
-    colorScheme: ColorScheme.fromSeed(
-      seedColor: seedColor,
-      brightness: Brightness.dark,
-    ),
-    scaffoldBackgroundColor: const Color(0xFF0F1A0F),
+    colorScheme:
+        ColorScheme.fromSeed(
+          seedColor: seedColor,
+          brightness: Brightness.dark,
+        ).copyWith(
+          surface: const Color.fromARGB(255, 0, 70, 0),
+          inversePrimary: const Color.fromARGB(255, 1, 116, 1),
+        ),
+    scaffoldBackgroundColor: const Color.fromARGB(255, 0, 50, 0),
     appBarTheme: const AppBarTheme(
       backgroundColor: Color(0xFF1B3A1E),
       foregroundColor: Colors.white,
@@ -84,7 +93,7 @@ class AppTheme {
     ),
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
-      fillColor: const Color(0xFF1B2A1B),
+      fillColor: const Color.fromARGB(255, 24, 102, 24),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
         borderSide: BorderSide.none,
@@ -93,11 +102,28 @@ class AppTheme {
     sliderTheme: const SliderThemeData(
       overlayShape: RoundSliderOverlayShape(overlayRadius: 12),
     ),
+
     segmentedButtonTheme: SegmentedButtonThemeData(
       style: ButtonStyle(
-        textStyle: WidgetStatePropertyAll(
-          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+        textStyle: const WidgetStatePropertyAll(
+          TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.white),
         ),
+
+        // Selected segment background
+        backgroundColor: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return const Color(0xFF2E7D32);
+          }
+          return null;
+        }),
+
+        // Selected/unselected text color
+        foregroundColor: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return Colors.white;
+          }
+          return null;
+        }),
       ),
     ),
   );
