@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'screens/home_page.dart';
+
+import 'screens/home_screen.dart';
 import 'theme.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
       themeMode: ThemeMode.system,
-      home: const HomePage(title: "Welcome to PlanEat!",),
+      home: const HomeScreen(title: "Welcome to PlanEat!",),
     );
   }
 }

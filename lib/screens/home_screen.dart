@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:planeat_mobile_app/models/user_input.dart';
-import 'package:planeat_mobile_app/screens/results_page.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key, required this.title});
+import 'package:planeat_mobile_app/models/user_input.dart';
+import 'package:planeat_mobile_app/screens/results_screen.dart';
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key, required this.title});
 
   final String title;
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomeScreen> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomeScreen> {
   double budget = 100;
   String skillLevel = "easy";
   double timeToCook = 60;
@@ -328,7 +329,7 @@ class _HomePageState extends State<HomePage> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => ResultsPage(),
+                              builder: (context) => ResultsScreen(userInput: newUserInput,),
                             ),
                           );
                         }

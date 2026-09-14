@@ -1,17 +1,21 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+
 import 'package:planeat_mobile_app/models/recipe.dart';
 import 'package:planeat_mobile_app/testing/mock_recipes.dart';
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:planeat_mobile_app/models/user_input.dart';
 
-class ResultsPage extends StatefulWidget {
-  const ResultsPage({super.key});
+class ResultsScreen extends StatefulWidget {
+  const ResultsScreen({super.key, required this.userInput});
+
+  final UserInput? userInput;
 
   @override
-  State<ResultsPage> createState() => _ResultsPageState();
+  State<ResultsScreen> createState() => _ResultsPageState();
 }
 
-class _ResultsPageState extends State<ResultsPage> {
+class _ResultsPageState extends State<ResultsScreen> {
   final List<Recipe> recipesList = mockRecipes;
 
   @override
