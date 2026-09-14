@@ -100,13 +100,21 @@ class AppTheme {
       ),
     ),
     sliderTheme: const SliderThemeData(
+      inactiveTrackColor: Color(0xFF2E7D32),
+      activeTrackColor: Color.fromARGB(255, 171, 245, 173),
+      thumbColor: Color.fromARGB(255, 171, 245, 173),
+      overlayColor: Color(0x332E7D32),
       overlayShape: RoundSliderOverlayShape(overlayRadius: 12),
     ),
 
     segmentedButtonTheme: SegmentedButtonThemeData(
       style: ButtonStyle(
         textStyle: const WidgetStatePropertyAll(
-          TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Colors.white),
+          TextStyle(
+            fontSize: 15,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
         ),
 
         // Selected segment background
