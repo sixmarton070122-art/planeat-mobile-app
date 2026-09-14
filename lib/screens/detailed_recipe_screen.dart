@@ -219,8 +219,10 @@ class _DetailedRecipeScreenState extends State<DetailedRecipeScreen> {
                                       child: Row(
                                         spacing: 5,
                                         children: [
-                                          const SizedBox(),
-                                          const Icon(Icons.circle, size: 5),
+                                          Padding(
+                                            padding: const EdgeInsetsGeometry.directional(start: 5),
+                                            child: const Icon(Icons.circle, size: 5),
+                                          ),
                                           Expanded(
                                             child: FittedBox(
                                               fit: BoxFit.scaleDown,
@@ -242,11 +244,14 @@ class _DetailedRecipeScreenState extends State<DetailedRecipeScreen> {
                                     const SizedBox(width: 10),
 
                                     // AMOUNT — fixed size, never shrinks
-                                    Text(
-                                      ingredient.amount,
-                                      style: const TextStyle(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.bold,
+                                    Padding(
+                                      padding: const EdgeInsetsGeometry.directional(end: 5),
+                                      child: Text(
+                                        ingredient.amount,
+                                        style: const TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
                                     ),
                                   ],
