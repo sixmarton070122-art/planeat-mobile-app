@@ -34,10 +34,12 @@ class _DetailedRecipeScreenState extends State<DetailedRecipeScreen> {
       ),
 
       //BODY
-      body: Padding(
-        padding: EdgeInsetsGeometry.all(5),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(5),
         child: Column(
+          spacing: 5,
           children: [
+            //PICTURE AND NAME
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5),
@@ -63,10 +65,116 @@ class _DetailedRecipeScreenState extends State<DetailedRecipeScreen> {
                     ),
                     FittedBox(
                       fit: BoxFit.scaleDown,
-                      child: Text(widget.recipe.name, style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
+                      child: Text(
+                        widget.recipe.name,
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                   ],
                 ),
+              ),
+            ),
+        
+            //COST AND TIME
+            FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Row(
+                spacing: 5,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  //FIRST COLUMN
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: Theme.of(context).colorScheme.surface,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Cooking time",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            "${widget.recipe.timeToCook.round()} min",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+            
+                  //Second Column
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: Theme.of(context).colorScheme.surface,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Total cost",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            "${widget.recipe.totalCost.round()} kr",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+            
+                  //THIRD COLUMN
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: Theme.of(context).colorScheme.surface,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Servings",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            "${widget.recipe.servings.round()}",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ],

@@ -43,7 +43,7 @@ class _ResultsPageState extends State<ResultsScreen> {
           children: [
             //TEXT
             SizedBox(
-              height: 65,
+              height: 50,
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(5),
@@ -93,6 +93,7 @@ class _ResultsPageState extends State<ResultsScreen> {
                       child: Padding(
                         padding: const EdgeInsets.all(5.0),
                         child: Column(
+                          spacing: 3,
                           children: [
                             // Image
                             AspectRatio(
@@ -110,49 +111,46 @@ class _ResultsPageState extends State<ResultsScreen> {
                             ),
 
                             // Data row
-                            Padding(
-                              padding: const EdgeInsets.all(5),
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  FittedBox(
-                                    fit: BoxFit.scaleDown,
-                                    child: Text(
-                                      recipe.name,
-                                      style: const TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20,
+                            Column(
+                              mainAxisAlignment:
+                                  MainAxisAlignment.spaceBetween,
+                              children: [
+                                FittedBox(
+                                  fit: BoxFit.scaleDown,
+                                  child: Text(
+                                    recipe.name,
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                ),
+                            
+                                FittedBox(
+                                  fit: BoxFit.scaleDown,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    spacing: 20,
+                                    children: [
+                                      Text(
+                                        '${recipe.totalCost.round()} kr',
+                                        style: const TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
-                                    ),
-                                  ),
-
-                                  FittedBox(
-                                    fit: BoxFit.scaleDown,
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      spacing: 10,
-                                      children: [
-                                        Text(
-                                          '${recipe.totalCost.round()} kr',
-                                          style: const TextStyle(
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.bold,
-                                          ),
+                                      Text(
+                                        '${recipe.timeToCook.round()} min',
+                                        style: const TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.bold,
                                         ),
-                                        Text(
-                                          '${recipe.timeToCook.round()} min',
-                                          style: const TextStyle(
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
