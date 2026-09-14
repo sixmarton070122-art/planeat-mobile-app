@@ -220,8 +220,14 @@ class _DetailedRecipeScreenState extends State<DetailedRecipeScreen> {
                                         spacing: 5,
                                         children: [
                                           Padding(
-                                            padding: const EdgeInsetsGeometry.directional(start: 5),
-                                            child: const Icon(Icons.circle, size: 5),
+                                            padding:
+                                                const EdgeInsetsGeometry.directional(
+                                                  start: 5,
+                                                ),
+                                            child: const Icon(
+                                              Icons.circle,
+                                              size: 5,
+                                            ),
                                           ),
                                           Expanded(
                                             child: FittedBox(
@@ -245,7 +251,10 @@ class _DetailedRecipeScreenState extends State<DetailedRecipeScreen> {
 
                                     // AMOUNT — fixed size, never shrinks
                                     Padding(
-                                      padding: const EdgeInsetsGeometry.directional(end: 5),
+                                      padding:
+                                          const EdgeInsetsGeometry.directional(
+                                            end: 5,
+                                          ),
                                       child: Text(
                                         ingredient.amount,
                                         style: const TextStyle(
@@ -369,16 +378,19 @@ class _DetailedRecipeScreenState extends State<DetailedRecipeScreen> {
                 child: SizedBox(
                   height: 45,
                   width: 100,
-                  child: ElevatedButton(onPressed: () {}, child: Text(
-                            "Save",
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          )),
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: Text(
+                      "Save",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
