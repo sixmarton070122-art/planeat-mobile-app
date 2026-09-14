@@ -98,6 +98,7 @@ class AppTheme {
         ).copyWith(
           surface: const Color.fromARGB(255, 0, 70, 0),
           inversePrimary: const Color.fromARGB(255, 1, 116, 1),
+          outline: Color.fromARGB(255, 26, 140, 26)
         ),
     scaffoldBackgroundColor: const Color.fromARGB(255, 0, 50, 0),
     appBarTheme: const AppBarTheme(

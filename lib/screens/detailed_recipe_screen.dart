@@ -77,7 +77,7 @@ class _DetailedRecipeScreenState extends State<DetailedRecipeScreen> {
                 ),
               ),
             ),
-        
+
             //COST AND TIME
             FittedBox(
               fit: BoxFit.scaleDown,
@@ -114,7 +114,7 @@ class _DetailedRecipeScreenState extends State<DetailedRecipeScreen> {
                       ),
                     ),
                   ),
-            
+
                   //Second Column
                   Container(
                     decoration: BoxDecoration(
@@ -144,7 +144,7 @@ class _DetailedRecipeScreenState extends State<DetailedRecipeScreen> {
                       ),
                     ),
                   ),
-            
+
                   //THIRD COLUMN
                   Container(
                     decoration: BoxDecoration(
@@ -175,6 +175,90 @@ class _DetailedRecipeScreenState extends State<DetailedRecipeScreen> {
                     ),
                   ),
                 ],
+              ),
+            ),
+
+            //INGREDIENTS
+            SizedBox(
+              width: double.infinity,
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  color: Theme.of(context).colorScheme.surface,
+                ),
+                child: Padding(
+                  padding: EdgeInsetsGeometry.all(5),
+                  child: Column(
+                    spacing: 5,
+                    children: [
+                      FittedBox(  
+                        child: Text(
+                          "Ingredients",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      ListView.builder(
+                        itemCount: widget.recipe.ingredients.length,
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemBuilder: (context, index) {
+                          final ingredient = widget.recipe.ingredients[index];
+
+                          return Padding(
+                            padding: const EdgeInsetsDirectional.only(top: 5),
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    // NAME — flexible width, shrinks to fit if too long
+                                    Expanded(
+                                      child: Row(
+                                        spacing: 5,
+                                        children: [
+                                          const Icon(Icons.circle, size: 5),
+                                          Expanded(
+                                            child: FittedBox(
+                                              fit: BoxFit.scaleDown,
+                                              alignment: Alignment.centerLeft,
+                                              child: Text(
+                                                ingredient.name,
+                                                style: const TextStyle(
+                                                  fontSize: 15,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                                maxLines: 1,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                
+                                    const SizedBox(width: 10),
+                                
+                                    // AMOUNT — fixed size, never shrinks
+                                    Text(
+                                      ingredient.amount,
+                                      style: const TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: 2, width: double.infinity,child: DecoratedBox(decoration: BoxDecoration(color: Theme.of(context).colorScheme.outline,borderRadius: BorderRadius.circular(5))))
+                              ],
+                            ),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
           ],
