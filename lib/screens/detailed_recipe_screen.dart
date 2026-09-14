@@ -191,7 +191,7 @@ class _DetailedRecipeScreenState extends State<DetailedRecipeScreen> {
                   child: Column(
                     spacing: 5,
                     children: [
-                      FittedBox(  
+                      FittedBox(
                         child: Text(
                           "Ingredients",
                           style: TextStyle(
@@ -212,13 +212,15 @@ class _DetailedRecipeScreenState extends State<DetailedRecipeScreen> {
                             child: Column(
                               children: [
                                 Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     // NAME — flexible width, shrinks to fit if too long
                                     Expanded(
                                       child: Row(
                                         spacing: 5,
                                         children: [
+                                          const SizedBox(),
                                           const Icon(Icons.circle, size: 5),
                                           Expanded(
                                             child: FittedBox(
@@ -237,9 +239,9 @@ class _DetailedRecipeScreenState extends State<DetailedRecipeScreen> {
                                         ],
                                       ),
                                     ),
-                                
+
                                     const SizedBox(width: 10),
-                                
+
                                     // AMOUNT — fixed size, never shrinks
                                     Text(
                                       ingredient.amount,
@@ -250,12 +252,54 @@ class _DetailedRecipeScreenState extends State<DetailedRecipeScreen> {
                                     ),
                                   ],
                                 ),
-                                SizedBox(height: 2, width: double.infinity,child: DecoratedBox(decoration: BoxDecoration(color: Theme.of(context).colorScheme.outline,borderRadius: BorderRadius.circular(5))))
+                                SizedBox(
+                                  height: 2,
+                                  width: double.infinity,
+                                  child: DecoratedBox(
+                                    decoration: BoxDecoration(
+                                      color: Theme.of(
+                                        context,
+                                      ).colorScheme.outline,
+                                      borderRadius: BorderRadius.circular(5),
+                                    ),
+                                  ),
+                                ),
                               ],
                             ),
                           );
                         },
                       ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+
+            //STEPS
+            SizedBox(
+              width: double.infinity,
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  color: Theme.of(context).colorScheme.surface,
+                ),
+                child: Padding(
+                  padding: EdgeInsetsGeometry.all(5),
+                  child: Column(
+                    spacing: 5,
+                    children: [
+                      FittedBox(
+                        child: Text(
+                          "Steps",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+
+                      //Steps list
+                      
                     ],
                   ),
                 ),
