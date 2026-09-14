@@ -47,7 +47,7 @@ class _HomePageState extends State<HomeScreen> {
         ),
         body: SafeArea(
           child: SingleChildScrollView(
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(5),
             child: Column(
               spacing: 5,
               children: [
