@@ -14,13 +14,13 @@ class AppTheme {
         ).copyWith(
           surface: const Color.fromARGB(
             255,
-            185,
-            255,
-            191,
+            120,
+            245,
+            130,
           ), // light green — this is what your containers actually read
-          inversePrimary: const Color(0xFF2E7D32),
+          inversePrimary: const Color.fromARGB(255, 27, 149, 33),
         ),
-    scaffoldBackgroundColor: const Color.fromARGB(255, 110, 204, 113),
+    scaffoldBackgroundColor: const Color.fromARGB(255, 66, 199, 71),
     appBarTheme: const AppBarTheme(
       backgroundColor: Color(0xFF2E7D32),
       foregroundColor: Colors.white,
@@ -44,17 +44,45 @@ class AppTheme {
     ),
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
-      fillColor: const Color(0xFFF1F8F1),
+      fillColor: const Color.fromARGB(255, 203, 253, 203),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
         borderSide: BorderSide.none,
       ),
     ),
+    sliderTheme: SliderThemeData(
+      overlayShape: SliderComponentShape
+          .noOverlay, // match dark theme, or use 0 to disable
+      thumbColor: const Color.fromARGB(255, 38, 160, 44),
+      activeTrackColor: const Color.fromARGB(255, 38, 160, 44),
+      inactiveTrackColor: const Color(0xFFB2DFB5),
+      overlayColor: const Color(0x332E7D32),
+    ),
     segmentedButtonTheme: SegmentedButtonThemeData(
       style: ButtonStyle(
-        textStyle: WidgetStatePropertyAll(
-          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+        textStyle: const WidgetStatePropertyAll(
+          TextStyle(
+            fontSize: 15,
+            fontWeight: FontWeight.bold,
+            color: Color.fromARGB(255, 0, 0, 0),
+          ),
         ),
+
+        // Selected segment background
+        backgroundColor: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return const Color.fromARGB(255, 65, 193, 69);
+          }
+          return const Color.fromARGB(255, 176, 253, 180);
+        }),
+
+        // Selected/unselected text color
+        foregroundColor: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return Colors.white;
+          }
+          return null;
+        }),
       ),
     ),
   );
@@ -99,12 +127,12 @@ class AppTheme {
         borderSide: BorderSide.none,
       ),
     ),
-    sliderTheme: const SliderThemeData(
+    sliderTheme: SliderThemeData(
       inactiveTrackColor: Color(0xFF2E7D32),
       activeTrackColor: Color.fromARGB(255, 171, 245, 173),
       thumbColor: Color.fromARGB(255, 171, 245, 173),
       overlayColor: Color(0x332E7D32),
-      overlayShape: RoundSliderOverlayShape(overlayRadius: 12),
+      overlayShape: SliderComponentShape.noOverlay,
     ),
 
     segmentedButtonTheme: SegmentedButtonThemeData(
@@ -120,9 +148,9 @@ class AppTheme {
         // Selected segment background
         backgroundColor: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.selected)) {
-            return const Color(0xFF2E7D32);
+            return const Color.fromARGB(255, 29, 105, 33);
           }
-          return null;
+          return const Color.fromARGB(255, 13, 59, 15);
         }),
 
         // Selected/unselected text color
