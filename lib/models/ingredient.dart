@@ -8,6 +8,22 @@ class Ingredient {
     required this.name,
     required this.amount,
     required this.cost,
-    required this.has
+    required this.has,
   });
+
+  factory Ingredient.fromJson(Map<String, dynamic> json) {
+    return Ingredient(
+      name: json['name'],
+      amount: json['amount'],
+      cost: json['cost'],
+      has: json['has'],
+    );
+  }
+
+  Map<String, dynamic> toJson() => {
+    'name': name,
+    'amount': amount,
+    'cost': cost,
+    'has': has
+  };
 }
