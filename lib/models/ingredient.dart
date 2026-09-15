@@ -13,10 +13,10 @@ class Ingredient {
 
   factory Ingredient.fromJson(Map<String, dynamic> json) {
     return Ingredient(
-      name: json['name'],
-      amount: json['amount'],
-      cost: json['cost'],
-      has: json['has'],
+      name: json['name'] as String,
+      amount: json['amount'] as String,
+      cost: json['cost'] as double,
+      has: json['has'] as bool,
     );
   }
 
