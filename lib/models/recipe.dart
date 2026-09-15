@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:planeat_mobile_app/models/ingredient.dart';
 import 'package:planeat_mobile_app/models/cooking_step.dart';
 
