@@ -38,4 +38,14 @@ class Recipe {
       imageURL: json['imageURL'],
     );
   }
+
+  Map<String, dynamic> toJson() => {
+    'name': name,
+    'servings': servings,
+    'timeToCook': timeToCook,
+    'totalCost': totalCost,
+    'ingredients': ingredients,
+    'steps': steps,
+    'imageURL': imageURL
+  };
 }
