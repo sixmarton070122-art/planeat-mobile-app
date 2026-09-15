@@ -1,4 +1,5 @@
 import 'package:planeat_mobile_app/models/recipe.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class FavoritesService {
 
