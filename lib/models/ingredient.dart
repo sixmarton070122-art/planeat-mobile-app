@@ -1,7 +1,18 @@
+import 'package:hive_ce_flutter/hive_flutter.dart';
+part 'ingredient.g.dart';
+
+@HiveType(typeId: 1)
 class Ingredient {
-  final String name; //Ingredient name
-  final String amount; //Amount to be used
-  final double cost; //Cost of ingredient
+  @HiveField(0)
+  final String name;
+
+  @HiveField(1)
+  final String amount;
+
+  @HiveField(2)
+  final double cost;
+
+  @HiveField(3)
   final bool has;
 
   Ingredient({
@@ -24,6 +35,6 @@ class Ingredient {
     'name': name,
     'amount': amount,
     'cost': cost,
-    'has': has
+    'has': has,
   };
 }

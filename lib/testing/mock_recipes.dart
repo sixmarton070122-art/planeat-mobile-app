@@ -5,7 +5,6 @@ import 'package:planeat_mobile_app/models/cooking_step.dart';
 final mockRecipes = [
   Recipe(
     name: 'Creamy Chicken Pasta',
-    id: 0,
     servings: 4,
     timeToCook: 30,
     totalCost: 11.80,
@@ -32,7 +31,6 @@ final mockRecipes = [
 
   Recipe(
     name: 'Beef Tacos',
-    id: 1,
     servings: 3,
     timeToCook: 25,
     totalCost: 10.50,
@@ -59,7 +57,6 @@ final mockRecipes = [
 
   Recipe(
     name: 'Vegetable Stir-Fry',
-    id: 2,
     servings: 2,
     timeToCook: 20,
     totalCost: 6.90,
@@ -86,7 +83,6 @@ final mockRecipes = [
 
   Recipe(
     name: 'Classic Margherita Pizza',
-    id: 3,
     servings: 2,
     timeToCook: 35,
     totalCost: 7.40,
@@ -112,7 +108,6 @@ final mockRecipes = [
 
   Recipe(
     name: 'Chicken Fried Rice',
-    id: 4,
     servings: 3,
     timeToCook: 25,
     totalCost: 9.20,
@@ -141,7 +136,6 @@ final mockRecipes = [
 
   Recipe(
     name: 'Creamy Tomato Soup',
-    id: 5,
     servings: 4,
     timeToCook: 30,
     totalCost: 5.60,

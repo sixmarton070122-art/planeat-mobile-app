@@ -5,11 +5,10 @@ import 'screens/home_screen.dart';
 import 'models/recipe.dart';
 import 'theme.dart';
 
-
 void main() async {
   await Hive.initFlutter();
-
   await Hive.openBox<Recipe>('favorites');
+
   runApp(const MyApp());
 }
 
