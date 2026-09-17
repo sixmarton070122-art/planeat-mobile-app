@@ -393,8 +393,8 @@ class _DetailedRecipeScreenState extends State<DetailedRecipeScreen> {
               child: FittedBox(
                 fit: BoxFit.scaleDown,
                 child: SizedBox(
-                  height: 45,
-                  width: 100,
+                  height: 50,
+                  width: 115,
                   child: ElevatedButton(
                     onPressed: () {
                       if (isFavorite){
