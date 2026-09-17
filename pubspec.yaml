@@ -36,12 +36,9 @@ dependencies:
   cupertino_icons: ^1.0.8
   auto_size_text: ^3.0.0
   cached_network_image: ^4.0.0
-<<<<<<< HEAD
   hive_ce: ^2.20.0
   hive_ce_flutter: ^2.3.4
-=======
   shared_preferences: ^2.5.5
->>>>>>> parent of 172bd5c ("chore: replace shared preferences with hive")
 
 dev_dependencies:
   flutter_test:
@@ -53,6 +50,8 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^6.0.0
+  hive_ce_generator: ^1.11.3
+  build_runner: ^2.16.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
