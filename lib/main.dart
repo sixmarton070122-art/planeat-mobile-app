@@ -3,10 +3,15 @@ import 'package:hive_ce_flutter/hive_flutter.dart';
 
 import 'screens/home_screen.dart';
 import 'models/recipe.dart';
+import 'models/ingredient.dart';
 import 'theme.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   await Hive.initFlutter();
+  Hive.registerAdapter(RecipeAdapter());
+  Hive.registerAdapter(IngredientAdapter());
   await Hive.openBox<Recipe>('favorites');
 
   runApp(const MyApp());

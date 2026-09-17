@@ -2,22 +2,21 @@ import 'package:planeat_mobile_app/models/recipe.dart';
 import 'package:hive_ce/hive.dart';
 
 class FavoritesService {
+  final Box<Recipe> _box = Hive.box("favorites");
 
   Future<void> saveFavorite(Recipe recipe) async {
-    // Save recipe
+    await _box.put(recipe.name, recipe);
   }
 
   Future<void> removeFavorite(Recipe recipe) async {
-    // Remove recipe
+    await _box.delete(recipe.name);
   }
 
   Future<List<Recipe>> getFavorites() async {
-    // Get saved recipes
-    return [];
+    return _box.values.toList();
   }
 
   Future<bool> isFavorite(Recipe recipe) async {
-    // Check if recipe is saved
-    return false;
+    return _box.containsKey(recipe.name);
   }
 }
