@@ -1,5 +1,5 @@
 import 'package:planeat_mobile_app/models/recipe.dart';
-import 'package:hive_ce/hive_ce.dart';
+import 'package:hive_ce/hive.dart';
 
 class FavoritesService {
 

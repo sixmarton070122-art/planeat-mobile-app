@@ -3,6 +3,7 @@ import 'package:planeat_mobile_app/models/cooking_step.dart';
 
 class Recipe {
   final String name; //Name of the recipe
+  final int id;
   final int servings; //Number of servings
   final double timeToCook; //Time to cook
   final double totalCost; //Total cost
@@ -12,6 +13,7 @@ class Recipe {
 
   Recipe({
     required this.name,
+    required this.id,
     required this.servings,
     required this.timeToCook,
     required this.totalCost,
@@ -23,6 +25,7 @@ class Recipe {
   factory Recipe.fromJson(Map<String, dynamic> json) {
     return Recipe(
       name: json['name'] as String,
+      id: json['id'] as int,
       servings: json['servings'] as int,
       timeToCook: json['timeToCook'] as double,
       totalCost: json['totalCost'] as double,

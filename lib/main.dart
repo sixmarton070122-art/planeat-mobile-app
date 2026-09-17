@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:hive_ce_flutter/hive_flutter.dart';
 
 import 'screens/home_screen.dart';
+import 'models/recipe.dart';
 import 'theme.dart';
 
-void main() {
+
+void main() async {
+  await Hive.initFlutter();
+
+  await Hive.openBox<Recipe>('favorites');
   runApp(const MyApp());
 }
 
@@ -18,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
       themeMode: ThemeMode.dark,
-      home: const HomeScreen(title: "Welcome to PlanEat!",),
+      home: const HomeScreen(title: "Welcome to PlanEat!"),
     );
   }
 }
