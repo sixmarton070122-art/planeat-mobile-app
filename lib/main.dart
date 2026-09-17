@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hive_ce_flutter/hive_flutter.dart';
+import 'package:planeat_mobile_app/models/cooking_step.dart';
 
 import 'screens/home_screen.dart';
 import 'models/recipe.dart';
 import 'models/ingredient.dart';
+import 'models/cooking_step.dart';
 import 'theme.dart';
 
 void main() async {
@@ -12,6 +14,7 @@ void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(RecipeAdapter());
   Hive.registerAdapter(IngredientAdapter());
+  Hive.registerAdapter(CookingStepAdapter());
   await Hive.openBox<Recipe>('favorites');
 
   runApp(const MyApp());

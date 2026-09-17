@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:planeat_mobile_app/models/recipe.dart';
+import 'package:planeat_mobile_app/services/favorites_service.dart';
 
 class DetailedRecipeScreen extends StatefulWidget {
   const DetailedRecipeScreen({super.key, required this.recipe});
@@ -13,6 +14,22 @@ class DetailedRecipeScreen extends StatefulWidget {
 }
 
 class _DetailedRecipeScreenState extends State<DetailedRecipeScreen> {
+  bool isFavorite = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _checkFavorite();
+  }
+
+  Future<void> _checkFavorite() async {
+    final favorite = await FavoritesService().isFavorite(widget.recipe);
+
+    setState(() {
+      isFavorite = favorite;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -379,9 +396,19 @@ class _DetailedRecipeScreenState extends State<DetailedRecipeScreen> {
                   height: 45,
                   width: 100,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      if (isFavorite){
+                        FavoritesService().removeFavorite(widget.recipe);
+                      }else{
+                        FavoritesService().saveFavorite(widget.recipe);
+                      }
+
+                      setState(() {
+                        isFavorite = !isFavorite;
+                      });
+                    },
                     child: Text(
-                      "Save",
+                      isFavorite ? "Delete": "Save",
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,

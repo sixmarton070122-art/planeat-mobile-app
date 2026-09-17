@@ -3,11 +3,13 @@
 // Check in to version control
 
 import 'package:hive_ce/hive_ce.dart';
+import 'package:planeat_mobile_app/models/cooking_step.dart';
 import 'package:planeat_mobile_app/models/ingredient.dart';
 import 'package:planeat_mobile_app/models/recipe.dart';
 
 extension HiveRegistrar on HiveInterface {
   void registerAdapters() {
+    registerAdapter(CookingStepAdapter());
     registerAdapter(IngredientAdapter());
     registerAdapter(RecipeAdapter());
   }
@@ -15,6 +17,7 @@ extension HiveRegistrar on HiveInterface {
 
 extension IsolatedHiveRegistrar on IsolatedHiveInterface {
   void registerAdapters() {
+    registerAdapter(CookingStepAdapter());
     registerAdapter(IngredientAdapter());
     registerAdapter(RecipeAdapter());
   }
