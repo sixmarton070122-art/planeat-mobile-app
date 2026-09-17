@@ -4,15 +4,18 @@
 
 import 'package:hive_ce/hive_ce.dart';
 import 'package:planeat_mobile_app/models/ingredient.dart';
+import 'package:planeat_mobile_app/models/recipe.dart';
 
 extension HiveRegistrar on HiveInterface {
   void registerAdapters() {
     registerAdapter(IngredientAdapter());
+    registerAdapter(RecipeAdapter());
   }
 }
 
 extension IsolatedHiveRegistrar on IsolatedHiveInterface {
   void registerAdapters() {
     registerAdapter(IngredientAdapter());
+    registerAdapter(RecipeAdapter());
   }
 }

@@ -2,6 +2,8 @@ import 'package:hive_ce/hive.dart';
 import 'package:planeat_mobile_app/models/ingredient.dart';
 import 'package:planeat_mobile_app/models/cooking_step.dart';
 
+part 'recipe.g.dart';
+
 @HiveType(typeId: 0)
 class Recipe{
   @HiveField(0)
