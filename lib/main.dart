@@ -5,7 +5,6 @@ import 'package:planeat_mobile_app/models/cooking_step.dart';
 import 'screens/home_screen.dart';
 import 'models/recipe.dart';
 import 'models/ingredient.dart';
-import 'models/cooking_step.dart';
 import 'theme.dart';
 
 void main() async {
