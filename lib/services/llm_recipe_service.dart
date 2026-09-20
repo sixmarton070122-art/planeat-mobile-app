@@ -5,8 +5,8 @@ import '../models/user_input.dart';
 import '../models/recipe.dart';
 
 class LlmRecipeService {
-  static const String _apiKey = String.fromEnvironment('GEMINI_API_KEY');
-  static const String _model = 'gemini-3.8-flash';
+  static const String _apiKey = String.fromEnvironment('AQ.Ab8RN6JLVgUrtQylKTYyHL8jtPgW1jWOm2haqmxHa0vOMaswzg');
+  static const String _model = 'gemini-3.5-flash';
   static const String _endpoint =
       'https://generativelanguage.googleapis.com/v1beta/interactions';
 
@@ -59,10 +59,10 @@ class LlmRecipeService {
     }
 
     final envelope = jsonDecode(response.body);
-    final recipes = jsonDecode(envelope);
+    print(envelope);
 
     
-
+    return [];
   }
 
   String _buildPrompt(UserInput input) {
