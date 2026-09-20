@@ -4,10 +4,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:planeat_mobile_app/models/recipe.dart';
 import 'package:planeat_mobile_app/screens/detailed_recipe_screen.dart';
-import 'package:planeat_mobile_app/testing/mock_recipes.dart';
 import 'package:planeat_mobile_app/models/user_input.dart';
 
-import 'package:planeat_mobile_app/testing/mock_recipes.dart';
 import 'package:planeat_mobile_app/services/llm_recipe_service.dart';
 
 class ResultsScreen extends StatefulWidget {
