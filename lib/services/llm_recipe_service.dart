@@ -5,7 +5,7 @@ import '../models/user_input.dart';
 import '../models/recipe.dart';
 
 class LlmRecipeService {
-  static const String _apiKey = String.fromEnvironment('AQ.Ab8RN6JLVgUrtQylKTYyHL8jtPgW1jWOm2haqmxHa0vOMaswzg');
+  static const String _apiKey = String.fromEnvironment('GEMINI-API-KEY');
   static const String _model = 'gemini-3.5-flash';
   static const String _endpoint =
       'https://generativelanguage.googleapis.com/v1beta/interactions';
