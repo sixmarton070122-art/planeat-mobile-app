@@ -68,6 +68,7 @@ class Recipe{
     'totalCost': totalCost,
     'ingredients': ingredients,
     'steps': steps,
-    'imageURL': imageURL
+    'imageURL': imageURL,
+    'id': id,
   };
 }
