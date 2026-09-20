@@ -2,7 +2,7 @@ import 'package:planeat_mobile_app/models/recipe.dart';
 import 'package:hive_ce/hive.dart';
 
 class FavoritesService {
-  final Box<Recipe> _box = Hive.box("favorites");
+  final Box<Recipe> _box = Hive.box<Recipe>("favorites");
 
   Future<void> saveFavorite(Recipe recipe) async {
     await _box.put(recipe.name, recipe);
