@@ -27,6 +27,7 @@ final mockRecipes = [
       CookingStep(description: 'Mix in the cooked pasta and serve hot.'),
     ],
     imageURL: 'https://images.unsplash.com/photo-1473093295043-cdd812d0e601',
+    id: "mock-creamy-pasta"
   ),
 
   Recipe(
@@ -53,6 +54,7 @@ final mockRecipes = [
       CookingStep(description: 'Fill the shells with beef, vegetables and cheese.'),
     ],
     imageURL: 'https://images.unsplash.com/photo-1551504734-5ee1c4a1479b',
+    id: "mock-beef-tacos"
   ),
 
   Recipe(
@@ -79,6 +81,7 @@ final mockRecipes = [
       CookingStep(description: 'Serve over warm cooked rice.'),
     ],
     imageURL: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd',
+    id: 'mock-vegetable'
   ),
 
   Recipe(
@@ -104,6 +107,7 @@ final mockRecipes = [
       CookingStep(description: 'Slice and serve immediately.'),
     ],
     imageURL: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002',
+    id: "mock-margherita"
   ),
 
   Recipe(
@@ -132,6 +136,7 @@ final mockRecipes = [
       CookingStep(description: 'Stir-fry for a few minutes and serve hot.'),
     ],
     imageURL: 'https://images.unsplash.com/photo-1603133872878-684f208fb84b',
+    id: "mock-chicken-fried-rice"
   ),
 
   Recipe(
@@ -159,5 +164,6 @@ final mockRecipes = [
       CookingStep(description: 'Serve with fresh basil on top.'),
     ],
     imageURL: 'https://images.unsplash.com/photo-1547592180-85f173990554',
+    id: "mock-tomato-soup"
   ),
 ];
