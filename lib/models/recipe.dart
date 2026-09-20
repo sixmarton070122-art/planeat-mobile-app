@@ -27,6 +27,10 @@ class Recipe{
   @HiveField(6)
   final String imageURL;
 
+  @HiveField(7)
+  final String id;
+
+
   Recipe({
     required this.name,
     required this.servings,
@@ -35,6 +39,7 @@ class Recipe{
     required this.ingredients,
     required this.steps,
     required this.imageURL,
+    required this.id
   });
 
   factory Recipe.fromJson(Map<String, dynamic> json) {
@@ -52,6 +57,7 @@ class Recipe{
         (index) => CookingStep.fromJson(json['steps'][index]),
       ),
       imageURL: json['imageURL'],
+      id: json['id']
     );
   }
 
