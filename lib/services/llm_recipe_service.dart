@@ -57,6 +57,12 @@ class LlmRecipeService {
         'Gemini returned ${response.statusCode}: ${response.body}',
       );
     }
+
+    final envelope = jsonDecode(response.body);
+    final recipes = jsonDecode(envelope);
+
+    
+
   }
 
   String _buildPrompt(UserInput input) {
