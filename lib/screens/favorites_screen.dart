@@ -15,7 +15,7 @@ class FavoritesScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: AutoSizeText(
-          "Recipes",
+          "Favorites",
           style: const TextStyle(
             fontFamily: 'AlteHaasGrotesk',
             fontSize: 20,
@@ -37,28 +37,6 @@ class FavoritesScreen extends StatelessWidget {
             child: Column(
               spacing: 5,
               children: [
-                SizedBox(
-                  height: 50,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      color: Theme.of(context).colorScheme.surface,
-                    ),
-                    child: Center(
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: AutoSizeText(
-                          "List of the recipes below",
-                          style: const TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
                 ListView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
