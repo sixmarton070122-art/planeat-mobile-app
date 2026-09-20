@@ -329,7 +329,8 @@ class _HomePageState extends State<HomeScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => ResultsScreen(userInput: newUserInput,),
+                              builder: (context) =>
+                                  ResultsScreen(userInput: newUserInput!),
                             ),
                           );
                         }
