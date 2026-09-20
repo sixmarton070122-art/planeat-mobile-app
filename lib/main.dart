@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_ce_flutter/hive_flutter.dart';
 import 'package:planeat_mobile_app/models/cooking_step.dart';
+import 'package:planeat_mobile_app/services/main_navigation.dart';
 
 import 'screens/home_screen.dart';
 import 'models/recipe.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
       themeMode: ThemeMode.dark,
-      home: const HomeScreen(title: "Welcome to PlanEat!"),
+      home: const MainNavigation(),
     );
   }
 }
