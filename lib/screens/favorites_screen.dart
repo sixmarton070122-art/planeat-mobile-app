@@ -1,25 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:hive_ce_flutter/hive_flutter.dart';
 
 import 'package:planeat_mobile_app/models/recipe.dart';
-import 'package:planeat_mobile_app/services/favorites_service.dart';
 import 'package:planeat_mobile_app/screens/detailed_recipe_screen.dart';
 
-class FavoritesScreen extends StatefulWidget {
+class FavoritesScreen extends StatelessWidget {
   const FavoritesScreen({super.key});
-
-  @override
-  State<FavoritesScreen> createState() => _FavoritesScreenState();
-}
-
-class _FavoritesScreenState extends State<FavoritesScreen> {
-  final Future<List<Recipe>> favoritesList = FavoritesService().getFavorites();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //APPBAR
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: AutoSizeText(
@@ -31,20 +23,10 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
           ),
         ),
       ),
-
-      //BODY
-      body: FutureBuilder(
-        future: favoritesList,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
-          }
-
-          if (snapshot.hasError) {
-            return Center(child: Text('Something went wrong: ${snapshot.error}'));
-          }
-
-          final recipes = snapshot.data ?? [];
+      body: ValueListenableBuilder<Box<Recipe>>(
+        valueListenable: Hive.box<Recipe>('favorites').listenable(),
+        builder: (context, box, _) {
+          final recipes = box.values.toList();
 
           if (recipes.isEmpty) {
             return const Center(child: Text('No favorites saved yet.'));
@@ -55,7 +37,6 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
             child: Column(
               spacing: 5,
               children: [
-                //TEXT
                 SizedBox(
                   height: 50,
                   child: Container(
@@ -78,15 +59,13 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                     ),
                   ),
                 ),
-          
-                //RECIPE LIST
                 ListView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   itemCount: recipes.length,
                   itemBuilder: (context, index) {
                     final recipe = recipes[index];
-          
+
                     return GestureDetector(
                       onTap: () {
                         Navigator.push(
@@ -109,7 +88,6 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                             child: Column(
                               spacing: 3,
                               children: [
-                                // Image
                                 AspectRatio(
                                   aspectRatio: 16 / 5.2,
                                   child: ClipRRect(
@@ -123,8 +101,6 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                                     ),
                                   ),
                                 ),
-          
-                                // Data row
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
@@ -138,12 +114,10 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                                         ),
                                       ),
                                     ),
-          
                                     FittedBox(
                                       fit: BoxFit.scaleDown,
                                       child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
+                                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                         spacing: 20,
                                         children: [
                                           Text(
@@ -176,7 +150,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
               ],
             ),
           );
-        }
+        },
       ),
     );
   }
