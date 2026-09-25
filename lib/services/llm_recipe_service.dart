@@ -23,19 +23,24 @@ class LlmRecipeService {
     }
 
     final body = {
-      'model': _model,
-      'input': _buildPrompt(input),
-      'tools': [
-        {'type': 'google_search'},
+      'contents': [
+        {
+          'parts': [
+            {'text': _buildPrompt(input)},
+          ],
+        },
       ],
-      'response_format': {
-        'type': 'text',
-        'mime_type': 'application/json',
-        'schema': _schema,
+      'tools': [
+        {'google_search': {}},
+      ],
+      'generationConfig': {
+        'responseMimeType': 'application/json',
+        'responseSchema': _schema,
       },
     };
 
     late final http.Response response;
+
     try {
       response = await client
           .post(
@@ -51,13 +56,13 @@ class LlmRecipeService {
     } catch (e) {
       throw Exception('Network error: $e');
     }
-
+ 
     if (response.statusCode != 200) {
       throw Exception(
         'Gemini returned ${response.statusCode}: ${response.body}',
       );
     }
-
+    
     final envelope = jsonDecode(response.body);
     print(envelope);
 
