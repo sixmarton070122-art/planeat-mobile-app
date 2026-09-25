@@ -51,7 +51,6 @@ class LlmRecipeService {
             },
             body: jsonEncode(body),
           )
-          // Grounded calls are slow. 90s is not paranoid.
           .timeout(const Duration(seconds: 90));
     } catch (e) {
       throw Exception('Network error: $e');
@@ -62,9 +61,9 @@ class LlmRecipeService {
         'Gemini returned ${response.statusCode}: ${response.body}',
       );
     }
-    
+
     final envelope = jsonDecode(response.body);
-    print(envelope);
+    final candidates = envelope['candidates'] as List?;
 
     
     return [];
