@@ -65,6 +65,7 @@ class LlmRecipeService {
     
     final envelope = jsonDecode(response.body);
     print(envelope);
+    return [];
     
     """
     final candidates = envelope['candidates'] as List?;
