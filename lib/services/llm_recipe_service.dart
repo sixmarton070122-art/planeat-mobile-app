@@ -9,19 +9,19 @@ class LlmRecipeService {
   static const String _model = 'gemini-3.1-flash-lite';
   static const String _endpoint =
       'https://generativelanguage.googleapis.com/v1beta/models/$_model:generateContent';
-
+ 
   final http.Client client = http.Client();
   final UserInput input;
-
+ 
   LlmRecipeService({required this.input});
-
+ 
   Future<List<Recipe>> generateRecipe() async {
     if (_apiKey.isEmpty) {
       throw Exception(
         "No API key. Run with --dart-define-from-file=dart_define.json",
       );
     }
-
+ 
     final body = {
       'contents': [
         {
@@ -38,7 +38,7 @@ class LlmRecipeService {
         'responseSchema': _schema,
       },
     };
-
+ 
     late final http.Response response;
 
     try {
@@ -51,11 +51,12 @@ class LlmRecipeService {
             },
             body: jsonEncode(body),
           )
+          // Grounded calls are slow. 90s is not paranoid.
           .timeout(const Duration(seconds: 90));
     } catch (e) {
       throw Exception('Network error: $e');
     }
-
+ 
     if (response.statusCode != 200) {
       throw Exception(
         'Gemini returned ${response.statusCode}: ${response.body}',
@@ -66,7 +67,7 @@ class LlmRecipeService {
     final envelope = jsonDecode(response.body);
     print(envelope);
     return [];
-    
+
     """
     final candidates = envelope['candidates'] as List?;
 
@@ -132,7 +133,8 @@ For each recipe:
                   'Total cost in SEK of ingredients not already owned.',
             },
             'imageURL': {
-              'type': ['string', 'null'],
+              'type': 'string',
+              'nullable': true,
               'description': 'Direct URL to an image file, or null.',
             },
             'ingredients': {
