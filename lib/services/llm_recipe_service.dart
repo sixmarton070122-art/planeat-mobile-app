@@ -55,18 +55,27 @@ class LlmRecipeService {
     } catch (e) {
       throw Exception('Network error: $e');
     }
- 
+
     if (response.statusCode != 200) {
       throw Exception(
         'Gemini returned ${response.statusCode}: ${response.body}',
       );
     }
 
+    
     final envelope = jsonDecode(response.body);
+    print(envelope);
+    
+    """
     final candidates = envelope['candidates'] as List?;
 
+    final parts = candidates[0]['content']?['parts'] as List?;
+    if (parts == null || parts.isEmpty || parts[0]['text'] == null) {""";
+    //  throw Exception('Gemini response had no text content: $envelope');
+    //}
     
-    return [];
+
+
   }
 
   String _buildPrompt(UserInput input) {
@@ -118,7 +127,8 @@ For each recipe:
             },
             'totalCost': {
               'type': 'number',
-              'description': 'Total cost in SEK of ingredients not already owned.',
+              'description':
+                  'Total cost in SEK of ingredients not already owned.',
             },
             'imageURL': {
               'type': ['string', 'null'],
