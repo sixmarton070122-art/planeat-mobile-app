@@ -8,7 +8,7 @@ class LlmRecipeService {
   static const String _apiKey = String.fromEnvironment('GEMINI-API-KEY');
   static const String _model = 'gemini-3.1-flash-lite';
   static const String _endpoint =
-      'https://generativelanguage.googleapis.com/v1beta/interactions';
+      'https://generativelanguage.googleapis.com/v1beta/models/$_model:generateContent';
 
   final http.Client client = http.Client();
   final UserInput input;
